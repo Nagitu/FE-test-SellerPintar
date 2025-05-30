@@ -10,7 +10,7 @@ export default function ProfilePage() {
     <div className="bg-white min-h-screen">
       <Navbar />
       <div className="min-h-screen flex justify-center items-center">
-        <div className="border flex flex-col justify-center items-center w-[400px] px-4 py-6 text-black rounded-lg gap-5">
+        <div className=" flex flex-col justify-center items-center w-[400px] px-4 py-6 text-black rounded-lg gap-5">
           <a className="text-xl font-semibold text-slate-900">User Profile</a>
           <div className="h-10 w-10 rounded-full bg-[#BFDBFE] text-blue-900 items-center justify-center flex">
             J

@@ -1,0 +1,26 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Import style dari Tiptap CLI */
+@import "@/editor/styles/_variables.scss";
+@import "@/editor/styles/_keyframes-animations.scss";
+
+/* CSS tambahan */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fcf8f8;
+    --foreground: #834545;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}

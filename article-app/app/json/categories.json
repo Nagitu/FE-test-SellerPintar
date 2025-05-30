@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Technology",
+    "userId": 101,
+    "createdAt": "2024-01-01T12:00:00.000Z",
+    "updatedAt": "2024-01-01T12:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "Health",
+    "userId": 101,
+    "createdAt": "2024-01-02T09:30:00.000Z",
+    "updatedAt": "2024-01-02T09:30:00.000Z"
+  }
+]

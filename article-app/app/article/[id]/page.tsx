@@ -1,3 +1,4 @@
+"use client";
 import DetailArticle from "@/app/components/DetailArticle";
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar/Navbar";

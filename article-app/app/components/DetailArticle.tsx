@@ -27,7 +27,7 @@ const data = {
 
 export default function DetailArticle() {
   return (
-    <div className="min-h-screen px-[40px] md:px-[100px] lg:px-[160px] py-[40px] flex flex-col gap-10">
+    <div className="min-h-screen px-[40px] md:px-[100px] lg:px-[160px] py-[40px] flex flex-col gap-10 jus">
       {/* Header Section */}
       <div>
         <div className="flex flex-col items-center text-center gap-2">
@@ -52,7 +52,7 @@ export default function DetailArticle() {
 
         {/* HTML Content Section */}
         <div
-          className="prose max-w-none text-[#0F172A] my-10"
+          className="prose max-w-none text-[#0F172A] my-10 text-justify"
           dangerouslySetInnerHTML={{ __html: data.content }}
         />
       </div>

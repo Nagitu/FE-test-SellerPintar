@@ -3,6 +3,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const schema = z.object({
   username: z.string().min(1, "Please enter your username"),
@@ -12,6 +13,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export default function Home() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -21,7 +23,8 @@ export default function Home() {
   });
 
   const onSubmit = (data: FormData) => {
-    console.log("Data submit:", data);
+    router.push("/");
+    console.log(data);
   };
   return (
     <div className="flex min-h-screen justify-center items-center bg-slate-50">

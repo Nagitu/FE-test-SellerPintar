@@ -1,0 +1,16 @@
+/* public/quill-editor.css atau bisa import langsung */
+.ql-editor {
+  font-size: 0.875rem; /* text-sm */
+  min-height: 200px;
+  color: #0f172a; /* slate-900 */
+  padding: 0.75rem 1rem;
+}
+
+.ql-toolbar {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.ql-container {
+  border-radius: 0 0 0.5rem 0.5rem;
+  background-color: #f9fafb; /* gray-50 */
+}
