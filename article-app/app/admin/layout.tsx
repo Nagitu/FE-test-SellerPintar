@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Newspaper, Tag, LogOut } from "lucide-react";
 import { useState } from "react";
 
@@ -10,6 +10,7 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
   const pathname = usePathname();
   const active = pathname?.startsWith("/admin/articles")
     ? "articles"
@@ -84,6 +85,9 @@ export default function AdminLayout({
                 <a
                   href="/user/auth/login"
                   className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  onClick={() => {
+                    router.push("/admin/auth/login");
+                  }}
                 >
                   <LogOut className="w-4 h-4" />
                   Logout

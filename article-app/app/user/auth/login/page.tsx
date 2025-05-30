@@ -22,9 +22,20 @@ export default function Home() {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
+    // Ambil data dari JSON lokal
+    const res = await fetch("/json/user.json");
+    const users = await res.json();
+    console.log(users);
+    const user = users.find((u: any) => u.username === data.username);
+
+    if (user) {
+      console.log("User ditemukan:", user);
+      router.push("/"); // Redirect
+    } else {
+      console.error("User tidak ditemukan.");
+    }
     router.push("/");
-    console.log(data);
   };
   return (
     <div className="flex min-h-screen justify-center items-center bg-slate-50">

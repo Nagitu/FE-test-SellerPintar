@@ -1,8 +1,10 @@
 "use client";
 import { LogOut } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Navbar() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   return (
     <nav
@@ -41,6 +43,9 @@ export default function Navbar() {
             <a
               href="/user/auth/login"
               className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              onClick={() => {
+                router.push("/user/auth/login");
+              }}
             >
               <LogOut className="w-4 h-4" />
               Logout
