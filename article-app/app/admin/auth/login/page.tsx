@@ -89,7 +89,7 @@ export default function Home() {
 
         <div className="flex items-center justify-center text-[#475569] gap-1 text-sm">
           Don’t have an account?&nbsp;
-          <Link className="text-sm text-[#2563EB]" href="/user/auth/register">
+          <Link className="text-sm text-[#2563EB]" href="/admin/auth/register">
             register
           </Link>
         </div>
