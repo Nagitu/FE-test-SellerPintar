@@ -5,6 +5,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+type userType = {
+  id: number;
+  username: string;
+  role: string;
+};
+
 const schema = z.object({
   username: z.string().min(1, "Please enter your username"),
   password: z.string().min(1, "Please enter your password"),
@@ -27,7 +33,7 @@ export default function Home() {
     const res = await fetch("/json/user.json");
     const users = await res.json();
     console.log(users);
-    const user = users.find((u: any) => u.username === data.username);
+    const user = users.find((u: userType) => u.username === data.username);
 
     if (user) {
       console.log("User ditemukan:", user);
