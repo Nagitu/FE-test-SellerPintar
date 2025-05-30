@@ -3,6 +3,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const schema = z.object({
   username: z.string().min(1, "Please enter your username"),
@@ -13,6 +14,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export default function Register() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -20,10 +22,31 @@ export default function Register() {
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
+  const onSubmit = async (data: FormData) => {
+    try {
+      const res = await fetch("/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: data.username,
+          role: data.role,
+        }),
+      });
 
-  const onSubmit = (data: FormData) => {
-    console.log("Data submit:", data);
+      if (res.ok) {
+        const newUser = await res.json();
+        console.log("User saved:", newUser);
+        router.push("/"); // redirect
+      } else {
+        console.error("Failed to save user");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
+
   return (
     <div className="flex min-h-screen justify-center items-center bg-slate-50">
       <div className="w-[400px] h-[376px] rounded-[12px] bg-white px-4 py-10 flex flex-col gap-4">
